@@ -9,4 +9,4 @@ logging.basicConfig(
     stream=sys.stdout,
 )
 
-logger = logging.getLogger("currency_exchange")
+logger = logging.getLogger("neurondoc")

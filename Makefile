@@ -29,6 +29,9 @@ down:  ##@Docker Stop docker-compose services
 logs:  ##@Docker Show logs from docker-compose
 	docker-compose logs -f
 
+rebuild: ##@Docker Rebuild and restart services
+	docker-compose down && docker-compose up -d --build
+
 format:   ##@Code Format code with black for backend
 	cd backend && poetry run black .
 

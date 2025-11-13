@@ -3,6 +3,8 @@
 import uvicorn
 from fastapi import FastAPI
 
+from app.utils import logger
+
 
 app = FastAPI(
     title="Анализатор текста",
@@ -12,4 +14,6 @@ app = FastAPI(
 
 
 if __name__ == "__main__":
-    uvicorn.run(app="main:app", host="0.0.0.0", port=8000, reload=True)
+    logger.info("Инициализация работы приложения FastAPI")
+    uvicorn.run(app="main:app", host="0.0.0.0", port=8000)
+    logger.info("Завершение работы приложения FastAPI")
