@@ -17,8 +17,17 @@ backend_env:  ##@Environment Activate Poetry shell for backend
 poetry_install:  ##@Environment Activate install dependencies
 	cd backend && poetry install
 
-env_file: ##@Environment Create or update .env file
+env_file:  ##@Environment Create or update .env file
 	bash bash_scripts/create_or_update_env.sh
+
+up:  ##@Docker Start docker-compose services
+	docker-compose up -d  
+
+down:  ##@Docker Stop docker-compose services
+	docker-compose down
+
+logs:  ##@Docker Show logs from docker-compose
+	docker-compose logs -f
 
 help: ##@Help Show this help 
 	@echo -e "Usage: make [target] ...\n"

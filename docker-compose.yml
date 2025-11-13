@@ -1,0 +1,14 @@
+services:
+  backend_app:
+    build: ./backend
+    container_name: neurondoc_backend 
+    restart: always
+    ports: 
+      - "8000:8000"
+    working_dir: /app
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
