@@ -17,6 +17,9 @@ backend_env:  ##@Environment Activate Poetry shell for backend
 poetry_install:  ##@Environment Activate install dependencies
 	cd backend && poetry install
 
+env_file: ##@Environment Create or update .env file
+	bash bash_scripts/create_or_update_env.sh
+
 help: ##@Help Show this help 
 	@echo -e "Usage: make [target] ...\n"
 	@perl -e '$(HELP_FUN)' $(MAKEFILE_LIST)
