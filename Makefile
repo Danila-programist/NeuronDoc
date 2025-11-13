@@ -14,7 +14,7 @@ endif
 backend_env:  ##@Environment Activate Poetry shell for backend
 	cd backend && poetry shell
 
-poetry_install:  ##@Environment Activate Poetry and install dep
+poetry_install:  ##@Environment Activate install dependencies
 	cd backend && poetry install
 
 help: ##@Help Show this help 
