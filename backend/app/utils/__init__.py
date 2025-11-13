@@ -1,3 +1,5 @@
+"""Пакет утилит"""
+
 from .logging import logger
 
 

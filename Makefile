@@ -33,7 +33,7 @@ format:   ##@Code Format code with black for backend
 	cd backend && poetry run black .
 
 lint: ##@Code Lint code with pylint for backend
-	cd backend && poetry run pylint main.py
+	cd backend && poetry run pylint main.py app
 
 help: ##@Help Show this help 
 	@echo -e "Usage: make [target] ...\n"
