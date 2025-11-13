@@ -29,4 +29,4 @@ jobs:
       - name: Run Pylint
         working-directory: backend
         run: |
-          poetry run pylint main.py
+          poetry run pylint main.py app
