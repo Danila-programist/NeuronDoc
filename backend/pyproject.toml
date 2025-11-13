@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "backend-neurondoc"
+version = "0.1.0"
+description = "Backend for application on FastAPI"
+authors = ["Danila Golubev <danila25golubev@gmail.com>"]
+license = "free"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
