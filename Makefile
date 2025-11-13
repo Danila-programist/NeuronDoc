@@ -29,6 +29,12 @@ down:  ##@Docker Stop docker-compose services
 logs:  ##@Docker Show logs from docker-compose
 	docker-compose logs -f
 
+format:   ##@Code Format code with black for backend
+	cd backend && poetry run black .
+
+lint: ##@Code Lint code with pylint for backend
+	cd backend && poetry run pylint main.py
+
 help: ##@Help Show this help 
 	@echo -e "Usage: make [target] ...\n"
 	@perl -e '$(HELP_FUN)' $(MAKEFILE_LIST)

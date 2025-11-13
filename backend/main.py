@@ -1,3 +1,5 @@
+"""Точка входа Backend приложения"""
+
 import uvicorn
 from fastapi import FastAPI
 
@@ -7,7 +9,6 @@ app = FastAPI(
     description="API для работы с проектом NeuronDoc",
     version="1.0.0",
 )
-
 
 
 if __name__ == "__main__":
