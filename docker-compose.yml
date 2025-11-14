@@ -9,6 +9,14 @@ services:
     networks:
       - app_network
 
+  backend_tests:
+    build: ./backend
+    container_name: neurondoc_backend_tests
+    working_dir: /app
+    command: ["poetry", "run", "pytest", "-vv"]
+    networks:
+      - app_network
+
 networks:
   app_network:
     driver: bridge

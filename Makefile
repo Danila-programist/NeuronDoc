@@ -20,6 +20,9 @@ poetry_install:  ##@Environment Activate install dependencies
 env_file:  ##@Environment Create or update .env file
 	bash bash_scripts/create_or_update_env.sh
 
+test_backend: ##@Testing Run tests for backend
+	docker-compose run --rm backend_tests
+
 up:  ##@Docker Start docker-compose services
 	docker-compose up -d  
 

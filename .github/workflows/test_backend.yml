@@ -1,0 +1,24 @@
+name: test_backend
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Docker Compose
+        run: sudo apt-get update && sudo apt-get install -y docker-compose
+
+      - name: Build Test Container
+        run: docker-compose build backend_tests
+
+      - name: Run Backend Tests
+        run: docker-compose run --rm backend_tests
