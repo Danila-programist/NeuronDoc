@@ -51,4 +51,4 @@ help: ##@Help Show this help
 %::
 	@echo $(MESSAGE)
 
-PHONY: backend_env poetry_install env_file up down logs help
+PHONY: backend_env poetry_install env_file up down logs help test_backend rebuild format lint clean
