@@ -39,7 +39,7 @@ format:   ##@Code Format code with black for backend
 	cd backend && poetry run black .
 
 lint: ##@Code Lint code with pylint for backend
-	cd backend && poetry run pylint main.py app
+	cd backend && poetry run pylint main.py app tests
 
 clean: ##@Code Remove Python cache files and directories
 	bash bash_scripts/clean_files_and_dirs.sh
