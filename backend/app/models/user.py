@@ -12,6 +12,8 @@ from app.models import Base
 
 
 class User(Base):
+    """Инициализация класса таблицы Users"""
+
     __tablename__ = "users"
 
     user_id: Mapped[uuid.UUID] = mapped_column(
@@ -30,7 +32,6 @@ class User(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=text("NOW()")
     )
-
 
     files = relationship("File", back_populates="user")
     codes = relationship("Code", back_populates="user")

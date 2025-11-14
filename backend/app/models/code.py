@@ -2,7 +2,6 @@
 
 from datetime import datetime
 
-from datetime import datetime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Integer, String, DateTime, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
@@ -11,8 +10,9 @@ from sqlalchemy.sql import text
 from app.models import Base
 
 
-
 class Code(Base):
+    """Инициализация класса таблицы Code"""
+
     __tablename__ = "codes"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
@@ -21,7 +21,7 @@ class Code(Base):
     time_to_end: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         nullable=False,
-        server_default=text("NOW() + INTERVAL '5 minutes'")
+        server_default=text("NOW() + INTERVAL '5 minutes'"),
     )
     user_id: Mapped[UUID] = mapped_column(
         UUID(as_uuid=True),

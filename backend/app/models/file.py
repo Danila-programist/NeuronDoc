@@ -6,7 +6,10 @@ from sqlalchemy.dialects.postgresql import UUID
 
 from app.models import Base
 
+
 class File(Base):
+    """Инициализация класса таблицы Files"""
+
     __tablename__ = "files"
 
     file_id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
