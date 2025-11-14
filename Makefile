@@ -11,6 +11,9 @@ else
 MESSAGE = "Done"
 endif
 
+include .env
+export
+
 backend_env:  ##@Environment Activate Poetry shell for backend
 	cd backend && poetry shell
 
@@ -40,6 +43,9 @@ logs:  ##@Docker Show logs from docker-compose
 
 rebuild: ##@Docker Rebuild and restart all services
 	docker-compose down && docker-compose up -d --build
+
+psql:  ##@Database Open PostgreSQL inside docker container
+	docker exec -it $(DB_CONTAINER_NAME) psql -d $(DB_NAME) -U $(DB_USER)
 
 format:   ##@Code Format code with black for backend
 	cd backend && poetry run black .
