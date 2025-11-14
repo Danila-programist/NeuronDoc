@@ -47,6 +47,12 @@ rebuild: ##@Docker Rebuild and restart all services
 psql:  ##@Database Open PostgreSQL inside docker container
 	docker exec -it $(DB_CONTAINER_NAME) psql -d $(DB_NAME) -U $(DB_USER)
 
+revision:  ##@Database Create Alembic revision
+	mkdir -p backend/alembic/versions && cd backend && poetry run alembic revision --autogenerate
+
+migration:  ##@Database Apply Alembic migrations
+	cd backend && poetry run alembic upgrade head
+
 format:   ##@Code Format code with black for backend
 	cd backend && poetry run black .
 
@@ -63,4 +69,4 @@ help: ##@Help Show this help
 %::
 	@echo $(MESSAGE)
 
-PHONY: backend_env poetry_install env_file up down logs help test_backend rebuild format lint clean
+PHONY: backend_env poetry_install env_file up down logs help test_backend rebuild format lint clean revision migration psql
