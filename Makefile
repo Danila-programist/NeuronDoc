@@ -23,10 +23,10 @@ env_file:  ##@Environment Create or update .env file
 test_backend: ##@Testing Run tests for backend
 	docker-compose run --rm backend_tests 
 
-run_application:  ##@Docker Start docker-compose services for application
+run_app:  ##@Docker Start docker-compose services for application
 	docker-compose up -d backend_app backend_db
 
-rebuild_run_application:  ##@Rebuild and restart all services for application
+rebuild_run_app:  ##@Docker Rebuild and restart all services for application
 	docker-compose up -d backend_app backend_db --build
 
 up:  ##@Docker Start docker-compose all services
