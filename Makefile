@@ -38,6 +38,9 @@ format:   ##@Code Format code with black for backend
 lint: ##@Code Lint code with pylint for backend
 	cd backend && poetry run pylint main.py app
 
+clean: ##@Code Remove Python cache files and directories
+	bash bash_scripts/clean_files_and_dirs.sh
+
 help: ##@Help Show this help 
 	@echo -e "Usage: make [target] ...\n"
 	@perl -e '$(HELP_FUN)' $(MAKEFILE_LIST)
