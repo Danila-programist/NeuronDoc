@@ -26,6 +26,9 @@ test_backend: ##@Testing Run tests for backend
 run_application:  ##@Docker Start docker-compose services for application
 	docker-compose up -d backend_app backend_db
 
+rebuild_run_application:  ##@Rebuild and restart all services for application
+	docker-compose up -d backend_app backend_db --build
+
 up:  ##@Docker Start docker-compose all services
 	docker-compose up -d  
 
@@ -35,7 +38,7 @@ down:  ##@Docker Stop docker-compose services
 logs:  ##@Docker Show logs from docker-compose
 	docker-compose logs -f
 
-rebuild: ##@Docker Rebuild and restart services
+rebuild: ##@Docker Rebuild and restart all services
 	docker-compose down && docker-compose up -d --build
 
 format:   ##@Code Format code with black for backend
