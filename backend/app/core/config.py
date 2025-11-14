@@ -6,6 +6,7 @@ from pydantic import PostgresDsn
 
 class Settings(BaseSettings):
     """Задаем класс Settings с атрибутами из env-файла"""
+
     # Database
     DB_NAME: str
     DB_USER: str
