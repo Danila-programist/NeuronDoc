@@ -1,8 +1,6 @@
 services:
   backend_app:
     build: ./backend
-    env_file:
-      - .env
     container_name: neurondoc_backend 
     restart: always
     ports: 
@@ -13,8 +11,6 @@ services:
 
   backend_tests:
     build: ./backend
-    env_file:
-      - .env
     container_name: neurondoc_backend_tests
     working_dir: /app
     command: ["poetry", "run", "pytest", "-vv"]
