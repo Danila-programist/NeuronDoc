@@ -1,0 +1,6 @@
+[MASTER]
+ignore=venv,migrations,__pycache__
+
+
+[FORMAT]
+max-line-length=120

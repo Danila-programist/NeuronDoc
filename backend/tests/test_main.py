@@ -8,6 +8,7 @@ from httpx import AsyncClient
 @pytest.mark.asyncio
 class TestMain:
     """Тестирование ручек, которые идут из коробки в FastAPI"""
+
     async def test_invalid_endpoint_returns_404(self, client: AsyncClient):
         """Проверка несуществующей ручки"""
         response = await client.get("/nonexistent-endpoint")
