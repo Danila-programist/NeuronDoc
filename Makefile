@@ -47,6 +47,9 @@ rebuild: ##@Docker Rebuild and restart all services
 psql:  ##@Database Open PostgreSQL inside docker container
 	docker exec -it $(DB_CONTAINER_NAME) psql -d $(DB_NAME) -U $(DB_USER)
 
+psql_test:  ##@Database Open PostgreSQL inside docker container
+	docker exec -it backend_test_db psql -d $(DB_NAME) -U $(DB_USER)
+
 revision:  ##@Database Create Alembic revision
 	mkdir -p backend/alembic/versions && cd backend && poetry run alembic revision --autogenerate
 
