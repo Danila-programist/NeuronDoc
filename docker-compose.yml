@@ -3,9 +3,16 @@ services:
     build: ./backend
     container_name: neurondoc_backend 
     restart: always
+    env_file:
+      - .env
+    environment:
+      DB_HOST: backend_db 
     ports: 
       - "8000:8000"
     working_dir: /app
+    depends_on:
+      - backend_db
+    entrypoint: ["backend_scripts/entrypoint.sh"]
     networks:
       - app_network
 

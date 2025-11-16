@@ -12,4 +12,6 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["poetry", "run", "python3.12", "main.py"]
+RUN chmod +x backend_scripts/entrypoint.sh
+
+

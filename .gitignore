@@ -2,7 +2,6 @@ __pycache__
 .pytest_cache
 .coverage
 .env
-backend/alembic/versions/*
 .vscode
 backend/logs
 /frontend/node_modules
