@@ -24,7 +24,7 @@ env_file:  ##@Environment Create or update .env file
 	bash bash_scripts/create_or_update_env.sh
 
 test_backend: ##@Testing Run tests for backend
-	docker-compose run --rm backend_tests 
+	docker-compose run --rm backend_tests --build
 
 run_app:  ##@Docker Start docker-compose services for application
 	docker-compose up -d backend_app backend_db
