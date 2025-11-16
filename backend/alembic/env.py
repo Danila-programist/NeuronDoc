@@ -29,7 +29,9 @@ def run_migrations_offline():
 
 
 async def run_migrations_online():
-    connectable = create_async_engine(settings.ASYNC_DATABASE_DSN, poolclass=pool.NullPool)
+    connectable = create_async_engine(
+        settings.ASYNC_DATABASE_DSN, poolclass=pool.NullPool
+    )
 
     async with connectable.connect() as connection:
         await connection.run_sync(do_run_migrations)
