@@ -12,6 +12,6 @@ COPY . .
 
 EXPOSE 8000
 
-RUN chmod +x backend_scripts/entrypoint.sh
+RUN chmod +x backend_scripts/*
 
 

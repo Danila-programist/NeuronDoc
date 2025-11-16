@@ -20,7 +20,13 @@ services:
     build: ./backend
     container_name: neurondoc_backend_tests
     working_dir: /app
-    command: ["poetry", "run", "pytest", "-vv"]
+    env_file:
+      - .env
+    environment:
+      DB_HOST: backend_test_db 
+    depends_on:
+      - backend_test_db
+    entrypoint: ["backend_scripts/test_entrypoint.sh"]
     networks:
       - app_network
 
@@ -41,6 +47,23 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  backend_test_db:
+    image: postgres:15
+    container_name: backend_test_db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5433:5432"   
+    networks:
+      - app_network
+    volumes:
+      - postgres_test_data:/var/lib/postgresql/data
+
 
 networks:
   app_network:
@@ -48,3 +71,4 @@ networks:
 
 volumes:
   postgres_data:
+  postgres_test_data:
